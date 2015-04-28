@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Breakpoint Notifier</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+
+		<style>
+			.breakpoint_notifier {position: absolute;top: 25px;right: 0;font-family: arial, helvetica, sans-serif;font-size: 12px;}
+			.breakpoint_notifier .bps {padding: 5px 8px;background-color: #EEEEEE;}
+			.breakpoint_notifier .bp + * {margin-top: 2px;}
+			.current_size {background-color: #D3D3D3;padding: 5px 8px;}
+			@media only screen and (min-width : 1001px) {.breakpoint_notifier .bp_1 {font-weight: bold;}}
+			@media only screen and (max-width : 1000px) and (min-width: 769px) {.breakpoint_notifier .bp_2 {font-weight: bold;}}
+			@media only screen and (max-width : 768px) and (min-width: 521px) {.breakpoint_notifier .bp_3 {font-weight: bold;}}
+			@media only screen and (max-width : 520px) {.breakpoint_notifier .bp_4 {font-weight: bold;}}
+		</style>
+
+	</head>
+	<body>
+		<!-- Breakpoint Notifier -->
+		<div class="breakpoint_notifier">
+			<div class="current_size">
+				VS: <span data-bp="current_size"></span>
+			</div>
+			<div class="bps">
+				<div class="bp bp_1">D: 1000px+</div>
+				<div class="bp bp_2">TL: 1000px</div>
+				<div class="bp bp_3">TP: 768px</div>
+				<div class="bp bp_4">M: 520px</div>
+			</div>
+		</div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script>
+			$(window).on('load resize', function () {
+				var $window_width = $(window).width();
+				var $current_size = $('[data-bp=current_size]');
+				$current_size.empty().append($window_width, "px");
+			});
+		</script>
+	</body>
+</html>

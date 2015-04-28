@@ -1,0 +1,47 @@
+.breakpoint {
+	position: absolute;
+	top: 25px;
+	right: 0;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.breakpoint--current {
+	padding: 5px 8px;
+	background-color: #D3D3D3;
+}
+
+.breakpoint--values {
+	padding: 5px 8px;
+	background-color: #EEEEEE;
+}
+
+.breakpoint--values--item + .breakpoint--values--item {
+	margin-top: 2px;
+}
+
+
+
+@media only screen and (min-width : 1001px) {
+	.breakpoint--values--item_1 {
+		font-weight: bold;
+	}
+}
+
+@media only screen and (max-width : 1000px) and (min-width: 769px) {
+	.breakpoint--values--item_2 {
+		font-weight: bold;
+	}
+}
+
+@media only screen and (max-width : 768px) and (min-width: 521px) {
+	.breakpoint--values--item_3 {
+		font-weight: bold;
+	}
+}
+
+@media only screen and (max-width : 520px) {
+	.breakpoint--values--item_4 {
+		font-weight: bold;
+	}
+}
